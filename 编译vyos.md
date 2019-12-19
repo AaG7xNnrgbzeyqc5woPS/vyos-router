@@ -88,7 +88,18 @@
        $docker images
        vyos-builder 建立成功!
        
- # 12.
+ # 12. 运行新建的容器(vyos-builder)
+       Run newly built container:
+       $ docker run --rm -it --privileged -v $(pwd):/vyos -w /vyos vyos-builder bash
+       # --rm 退出容器,自动删除容器
+       # --it 交互方式进入容器内部,可以输入命令,cli
+       # --privileged 必须使用此参数,  Give extended privileges to this container, 此容器需要扩展权限
+       # -v $(pwd):/vyos, 当前的工作目录映射到 容器内部的 /vyos, 便于外部世界获取编译后的结果
+       # -w /vyos, 指定容器内部用 /vyos做工作目录
+       # vyos-builder  启动vyos-builder容器
+       # bash 进入容器后自动执行 bash命令,进入命令行.
+       
+       
        
    
    
