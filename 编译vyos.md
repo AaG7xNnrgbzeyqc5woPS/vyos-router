@@ -67,6 +67,10 @@
 # 9. 建立vyos-builder images文件
     $tmux new -s vyos
     
+    $pwd
+    $/vyos-build/
+    #确认下当前目录在 /vyos-build/目录下,没错的!
+    
     $docker build -t vyos-builder docker
     # -- docker build 命令,使用dockerfile 建立一个容器的镜像文件(images)
     # -t vyos-builder -t参数指定生成后的images使用的tag, tag=vyos-builder, 
@@ -96,6 +100,11 @@
        vyos-builder 建立成功!
        
  # 12. 运行新建的容器(vyos-builder)
+       先确认下当前目录:
+       $pwd
+       $/vyos-build/
+       #确认下当前目录在 /vyos-build/目录下,没错的!
+    
        Run newly built container:
        $ docker run --rm -it --privileged -v $(pwd):/vyos -w /vyos vyos-builder bash
        # --rm 退出容器,自动删除容器
@@ -107,6 +116,14 @@
        # bash 进入容器后自动执行 bash命令,进入命令行.
        
 # 13. Building the ISO image
+      环境确认
+      $who
+      $whoami
+      $uname -r
+      $uanme 
+      $pwd   #应该是 /vyos
+      $ls -l
+      
       $./configure --help
       # Ok
       $./configure --custom-package vim --build-by jrandom@hacker.com
