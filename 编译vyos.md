@@ -66,13 +66,20 @@
    
 # 9. 建立vyos-builder images文件
     $tmux new -s vyos
+    
     $docker build -t vyos-builder docker
+    # -- docker build 命令,使用dockerfile 建立一个容器的镜像文件(images)
+    # -t vyos-builder -t参数指定生成后的images使用的tag, tag=vyos-builder, 
+    #    就是 docker images 命令下看到的 REPOSITORY 名称
+    # docker, 这里是 Dockerfile 的路径. Dockerfile名字永远不能修改,大小写也不能变.
+    
     $ ....
     #等待超长时间,20分钟到几个小时,看机器速度
     ctrl+b d 退出当前 tmux会话.
     想看,登录到服务器后,用 
     $ tmux attach -t vyos
     $tmux ls #查看有多少个会话
+    # ......
     
 # 10. 查看 vyos-builder images 文件 
       $docker images
