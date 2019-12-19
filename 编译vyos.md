@@ -1,6 +1,6 @@
 
-*教程,源码都在这里:  
-*https://github.com/vyos/vyos-build
+* 教程,源码都在这里:  
+* https://github.com/vyos/vyos-build
 
 # 1. 准备合适的虚拟机, 
    - linode上创建, 在北美,下载速度会比国内快很多. 
