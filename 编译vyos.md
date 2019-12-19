@@ -59,5 +59,36 @@
     $ sudo addgoup docker
     $ usermod -aG docker $USER
     $ docker info
+    
+# 8. 下载vyos-build源码
+    $git clone https://github.com/vyos/vyos-build.git
+    $cd vyos-build/
+   
+# 9. 建立vyos-builder images文件
+    $tmux new -s vyos
+    $docker build -t vyos-builder docker
+    $ ....
+    #等待超长时间,20分钟到几个小时,看机器速度
+    ctrl+b d 退出当前 tmux会话.
+    想看,登录到服务器后,用 
+    $ tmux attach -t vyos
+    $tmux ls #查看有多少个会话
+    
+# 10. 查看 vyos-builder images 文件 
+      $docker images
+      REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+      vyos-builder        latest              bbc06f2b9618        39 minutes ago      4.33GB
+      debian              buster              67e34c1c9477        3 weeks ago         114MB
+      hello-world         latest              fce289e99eb9        11 months ago       1.84kB
+      $
+      可见vyos-builder的images已经建立好了!!!
+      #第一个可观的成果!!!
+      
+ # 11. 庆祝下第一个成果:
+       $docker images
+       vyos-builder 建立成功!
+       
+ # 12.
+       
    
    
