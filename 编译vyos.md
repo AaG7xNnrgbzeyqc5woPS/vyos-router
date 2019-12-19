@@ -106,7 +106,19 @@
        # vyos-builder  启动vyos-builder容器
        # bash 进入容器后自动执行 bash命令,进入命令行.
        
+# 13. Building the ISO image
+      $./configure --help
+      # Ok
+      $./configure --custom-package vim --build-by jrandom@hacker.com
+      # 这个命令居然开始出错了.说不认识这个命令, 从网页上拷贝的居然不对.是不是有非法字符呢,比如中文字符?
+      #后来从 ./configure --help 这行拷贝了命令,再拼接起来,OK!
+      
+      $sudo make iso
+      # Great Work is beginning! 
+      # .....  wait long time.....
+      # if ok then
+  ### After some time you will find the resulting ISO image in the build folder.
        
-       
+     The End!
    
    
