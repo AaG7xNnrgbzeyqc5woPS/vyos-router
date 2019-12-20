@@ -202,10 +202,18 @@
         #注意最后一步要用 root权限, 不用sudo 执行会错误.
         
 # 19. 再次建立 VMware images
+      $cd ..        
       $pwd
-      /yvos
+      /yvos  #重要,必须是 /yvos目录下
       
       $sudo make vmware   #需要root权限
+        Your system has vmdk-convert.
+        Your system doesn't have ovftool. Please install it from https://www.vmware.com/support/developer/ovf/.
+        make: *** [Makefile:61: vmware] Error 1
+     # 注释:  还缺工具,下载页面去看了,需要注册才能下载,太麻烦.
+     # 再考虑到 我也不用 VMware images,直接放弃吧!
+     
+# 20. 建立 VMware images失败,放弃!
 
         
        
