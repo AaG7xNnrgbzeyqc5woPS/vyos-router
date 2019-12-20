@@ -2,7 +2,7 @@
 **教程,源码都在这里:  
 **https://github.com/vyos/vyos-build
 
-# 1. 准备合适的虚拟机, 
+## 1. 准备合适的虚拟机, 
     - linode上创建, 在北美,下载速度会比国内快很多. 
     - 首先在已有的vps上构建, git下载没有问题, 
     - 但是 docker build 出现问题,第一次搞这个,没有太大信心.
@@ -10,7 +10,7 @@
     - 重复几次还是 不行,换方案,新建一个 干净,更合适的 vps
     - 新建的vps 是 debain 8, Debian 8 "Jessie" 
 
-# 2. 准备 vps Debian 8 "Jessie" 
+## 2. 准备 vps Debian 8 "Jessie" 
     - linode 1 CPU, 1G内存, 20G SSD硬盘,
     - Debian 8, 使用  ssh key 登录
     - adduser user1
@@ -19,10 +19,10 @@
     - 使用 user1 用户登录OK
     - 让 user1 使用 ssh key登录 ok
     
-# 3. 安装一般工具
+## 3. 安装一般工具
      - tmux, git,lsb_release
     
-# 4. Set up the repository  
+## 4. Set up the repository  
     Get Docker CE for Debian:  
     https://docs.docker.com/v17.12/install/linux/docker-ce/debian/#extra-steps-for-wheezy-77
    
@@ -46,25 +46,25 @@
            $(lsb_release -cs) \
            stable"
 
-# 5. Install Docker CE
+## 5. Install Docker CE
      $ sudo apt-get update
      $ sudo apt-get install docker-ce  
    
-# 6. Verify that Docker CE
+## 6. Verify that Docker CE
     $ sudo docker run hello-world
     $ sudo docker info
     $ sudo docker version
    
-# 7. 普通用户也能运行 docker
+## 7. 普通用户也能运行 docker
     $ sudo addgoup docker
     $ usermod -aG docker $USER
     $ docker info
     
-# 8. 下载vyos-build源码
+## 8. 下载vyos-build源码
     $git clone https://github.com/vyos/vyos-build.git
     $cd vyos-build/
    
-# 9. 建立vyos-builder images文件
+## 9. 建立vyos-builder images文件
     $tmux new -s vyos
     
     $pwd
@@ -85,7 +85,7 @@
     $tmux ls #查看有多少个会话
     # ......
     
-# 10. 查看 vyos-builder images 文件 
+## 10. 查看 vyos-builder images 文件 
       $docker images
       REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
       vyos-builder        latest              bbc06f2b9618        39 minutes ago      4.33GB
@@ -95,11 +95,11 @@
       可见vyos-builder的images已经建立好了!!!
       #第一个可观的成果!!!
       
- # 11. 庆祝下第一个成果:
+ ## 11. 庆祝下第一个成果:
        $docker images
        vyos-builder 建立成功!
        
- # 12. 运行新建的容器(vyos-builder)
+ ## 12. 运行新建的容器(vyos-builder)
        先确认下当前目录:
        $pwd
        $/vyos-build/
@@ -115,7 +115,7 @@
        # vyos-builder  启动vyos-builder容器
        # bash 进入容器后自动执行 bash命令,进入命令行.
        
-# 13. Building the ISO image
+## 13. Building the ISO image
       环境确认
       $who
       $whoami
@@ -136,7 +136,8 @@
       # if ok then
   ### After some time you will find the resulting ISO image in the build folder.
   
-  # 14. 查看编译结果
+  
+## 14. 查看编译结果
        #编译结束, 非常好!
        $ls -l
        drwxr-xr-x 9 vyos_bld vyos_bld  4096 Dec 19 15:30 build
@@ -150,7 +151,8 @@
        #记得昨天也是11左右睡觉,所以构造ISO包也没有用多久.快!!!
        #服务器的速度还是很快很快的!
        
-  # 15. 为虚拟平台建立images
+ 
+## 15. 为虚拟平台建立images
         Building images for virtualization platforms
         1. QEMU
         Run following command after building the ISO image.
@@ -160,7 +162,8 @@
         Run following command after building the QEMU image.
         $ make vmware
        
- # 16. 建立 QEMU images
+
+## 16. 建立 QEMU images
        $ make qemu
         .....
         ==> Builds finished. The artifacts of successful builds are:
@@ -177,7 +180,8 @@
         #vyos_qemu_image.img已经生成, OK
         #可见文件非常小,只有 193K,惊人的小,正确吗?
         
-# 17. 建立 VMware images
+        
+## 17. 建立 VMware images
       $pwd
       /yvos
       
@@ -186,7 +190,7 @@
       Your system doesn't have vmdk-convert. Please install it from https://github.com/vmware/open-vmdk.
       make: *** [Makefile:61: vmware] Error 1
       
-# 18. 安装 Open VMDK
+## 18. 安装 Open VMDK
      参见官方说明:
      https://github.com/vmware/open-vmdk
      
@@ -201,7 +205,7 @@
         $ sudo make install
         #注意最后一步要用 root权限, 不用sudo 执行会错误.
         
-# 19. 再次建立 VMware images
+## 19. 再次建立 VMware images
       $cd ..        
       $pwd
       /yvos  #重要,必须是 /yvos目录下
@@ -213,13 +217,13 @@
      # 注释:  还缺工具,下载页面去看了,需要注册才能下载,太麻烦.
      # 再考虑到 我也不用 VMware images,直接放弃吧!
      
-# 20. 建立 VMware images失败,放弃!
+## 20. 建立 VMware images失败,放弃!
 
         
        
        
        
        
- # 15. The End!
+## 15. The End!
    
    
