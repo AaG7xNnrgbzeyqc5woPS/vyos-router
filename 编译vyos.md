@@ -2,7 +2,7 @@
     教程,源码都在这里:  
     https://github.com/vyos/vyos-build
 
-
+----
 # 一. 准备
 ----
 ## 1. 准备合适的虚拟机, 
@@ -63,9 +63,13 @@
     $ usermod -aG docker $USER
     $ docker info
     
-    
+ 
+----- 
 # 二. 建立vyos-builder容器
 -----
+
+
+
 ## 8. 下载vyos-build源码
     $git clone https://github.com/vyos/vyos-build.git
     $cd vyos-build/
@@ -107,9 +111,10 @@
        vyos-builder 建立成功!
        
        
-       
+-----       
 # 三.建VyOS的ISO文件
 ----
+
 ## 12. 运行新建的容器(vyos-builder)
        先确认下当前目录:
        $pwd
@@ -149,6 +154,7 @@
   
   
 ## 14. 查看编译结果
+
        #编译结束, 非常好!
        $ls -l
        drwxr-xr-x 9 vyos_bld vyos_bld  4096 Dec 19 15:30 build
@@ -161,9 +167,11 @@
                12月19日 23:30 CST.北京时间
        #记得昨天也是11左右睡觉,所以构造ISO包也没有用多久.快!!!
        #服务器的速度还是很快很快的!
-       
+  
+----
 # 四.建立用户虚拟平台上的images文件
 ----
+
 ## 15. 为虚拟平台建立images
         Building images for virtualization platforms
         1. QEMU
@@ -230,11 +238,12 @@
      # 再考虑到 我也不用 VMware images,直接放弃吧!
      
 ## 20. 建立 VMware images失败,放弃!
-
+      #建立失败!
+      #苦海乌鸦,回头是岸!
         
-       
+-----     
 # 五. 结束 
-------------------------------
+-----
        
        
 ## 15. The End!
