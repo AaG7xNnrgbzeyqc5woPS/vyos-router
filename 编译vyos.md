@@ -160,6 +160,56 @@
         Run following command after building the QEMU image.
         $ make vmware
        
+ # 16. 建立 QEMU images
+       $ make qemu
+        .....
+        ==> Builds finished. The artifacts of successful builds are:
+        --> qemu-image: VM files in directory: packer_build/qemu
+       $ ls
+        build      data    Jenkinsfile  Makefile      packer_cache  scripts
+        configure  docker  LICENSE      packer_build  README.md     tools
+        #可以发现多了一个 packer_build目录
+        $ls packer_build
+        build.log  qemu
+        $ls packer_build/qemu -lh
+        total 196K
+        -rw-r--r-- 1 vyos_bld vyos_bld 193K Dec 20 00:46 vyos_qemu_image.img
+        #vyos_qemu_image.img已经生成, OK
+        #可见文件非常小,只有 193K,惊人的小,正确吗?
+        
+# 17. 建立 VMware images
+      $pwd
+      /yvos
+      
+      $ sudo make vmware #需要root权限
+      ....
+      Your system doesn't have vmdk-convert. Please install it from https://github.com/vmware/open-vmdk.
+      make: *** [Makefile:61: vmware] Error 1
+      
+# 18. 安装 Open VMDK
+     参见官方说明:
+     https://github.com/vmware/open-vmdk
+     
+     Installation
+        Firstly, you need to download and extract open-vmdk-master.zip and extract it:
+        $ wget https://github.com/vmware/open-vmdk/archive/master.zip
+        $ unzip master.zip
+
+        Then, run below commands to build and install it:
+        $ cd open-vmdk-master
+        $ make
+        $ sudo make install
+        #注意最后一步要用 root权限, 不用sudo 执行会错误.
+        
+# 19. 再次建立 VMware images
+      $pwd
+      /yvos
+      
+      $sudo make vmware   #需要root权限
+
+        
+       
+       
        
        
  # 15. The End!
