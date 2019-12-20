@@ -135,7 +135,33 @@
       # .....  wait long time.....
       # if ok then
   ### After some time you will find the resulting ISO image in the build folder.
+  
+  # 14. 查看编译结果
+       #编译结束, 非常好!
+       $ls -l
+       drwxr-xr-x 9 vyos_bld vyos_bld  4096 Dec 19 15:30 build
+       可以看到多了一个build子目录 
+       $ls build -al  
+       lrwxrwxrwx  1 root     root            27 Dec 19 15:30 vyos-1.3-rolling-20191219
+       这里可以发现 iso文件,这是是最新的滚动发布版.
+       #vyos-1.3-rolling-20191219
+       #时间是: 12月19日 15:30 UTC,换成北京时间,+8个小时,地球东方时间要早,所以时间跑得快些,数字大,用加法.
+               12月19日 23:30 CST.北京时间
+       #记得昨天也是11左右睡觉,所以构造ISO包也没有用多久.快!!!
+       #服务器的速度还是很快很快的!
        
-     The End!
+  # 15. 为虚拟平台建立images
+        Building images for virtualization platforms
+        1. QEMU
+        Run following command after building the ISO image.
+        $ make qemu
+
+        2. VMware
+        Run following command after building the QEMU image.
+        $ make vmware
+       
+       
+       
+ # 15. The End!
    
    
