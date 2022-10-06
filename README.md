@@ -1,7 +1,7 @@
 # vyos-router
 一款先进的软路由,开源,性能先进,命令行,性能比ROS还高,完全碾压ROS
 
-# :heart 滚动发布
+# ❤️ 滚动发布
  - 直接下载官方每日Build结果，不需要再辛苦的编译了。
  - [VyOS nightly builds ](https://vyos.net/get/nightly-builds/)
 
